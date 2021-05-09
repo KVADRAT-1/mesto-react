@@ -1,0 +1,5 @@
+.elements__photo-button:hover {
+    cursor: pointer;
+    border: none;
+    outline: none;
+}
