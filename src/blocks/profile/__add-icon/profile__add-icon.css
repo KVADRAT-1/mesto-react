@@ -1,0 +1,9 @@
+.profile__add-icon {
+    width: 22px;
+}
+
+@media (min-width:320px) and (max-width:767px) {
+    .profile__add-icon {
+        width: 16px;
+    }
+}
