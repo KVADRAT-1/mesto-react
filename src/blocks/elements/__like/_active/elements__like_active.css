@@ -1,7 +1,0 @@
-.elements__like_active {
-    background: url(../../../../images/icon-like-active.svg);
-}
-
-.elements__like_active:hover {
-    cursor: pointer;
-}
