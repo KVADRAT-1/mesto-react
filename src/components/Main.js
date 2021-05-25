@@ -1,12 +1,12 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import icon from '../images/edit-icon.svg'
 import editIcon from '../images/edit-icon.svg'
 import addButton from '../images/add-button.svg'
 import Card from './Card'
-import { TranslationContext } from '../contexts/CurrentUserContext.js'
+import { CurrentUserContext } from '../contexts/CurrentUserContext.js'
 
 function Main(props) {
-	const currentUser = React.useContext(TranslationContext)
+	const currentUser = useContext(CurrentUserContext)
 
 	return (
 		<main className='content'>

@@ -1,15 +1,8 @@
-import React, { useEffect } from 'react'
+import React, { useState } from 'react'
 import PopupWithForm from './PopupWithForm'
-import { TranslationContext } from '../contexts/CurrentUserContext'
 
 function EditAvatarPopup(props) {
-	const [avatar, setAvatar] = React.useState({})
-
-	const currentUser = React.useContext(TranslationContext)
-
-	React.useEffect(() => {
-		setAvatar(currentUser.avatar)
-	}, [currentUser])
+	const [avatar, setAvatar] = useState('')
 
 	function handleSubmit(e) {
 		e.preventDefault()
@@ -36,6 +29,7 @@ function EditAvatarPopup(props) {
 						<input
 							id='popup__input_link_avatar'
 							className='popup__input popup__input_link_picture'
+							value={avatar}
 							onChange={avatarChange}
 							name='popup__input_link_picture'
 							type='url'

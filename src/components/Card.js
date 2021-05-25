@@ -1,8 +1,8 @@
-import React from 'react'
-import { TranslationContext } from '../contexts/CurrentUserContext.js'
+import React, { useContext } from 'react'
+import { CurrentUserContext } from '../contexts/CurrentUserContext.js'
 
 function Card(props) {
-	const currentUser = React.useContext(TranslationContext)
+	const currentUser = useContext(CurrentUserContext)
 	const isOwn = props.owner._id === currentUser._id
 	const isLiked = props.likes.some(i => i._id === currentUser._id)
 	const cardDeleteButtonClassName = `elements__trash-button ${
@@ -20,6 +20,10 @@ function Card(props) {
 		props.onCardDelete(props)
 	}
 
+	function handlePhotoClick() {
+		props.onCardClick(props)
+	}
+
 	return (
 		<li className='elements__item'>
 			<button
@@ -29,9 +33,7 @@ function Card(props) {
 			></button>
 			<img
 				className='elements__photo'
-				onClick={() => {
-					props.onCardClick(props)
-				}}
+				onClick={handlePhotoClick}
 				src={props.link}
 				alt={props.name}
 			/>

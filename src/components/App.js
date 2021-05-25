@@ -1,24 +1,22 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import Header from './Header'
 import Main from './Main'
 import Footer from './Footer'
-import PopupWithForm from './PopupWithForm'
+import PopupConfirmation from './PopupConfirmation'
 import EditProfilePopup from './EditProfilePopup'
 import ImagePopup from './ImagePopup'
 import api from '../utils/api'
-import { TranslationContext } from '../contexts/CurrentUserContext.js'
+import { CurrentUserContext } from '../contexts/CurrentUserContext.js'
 import EditAvatarPopup from './EditAvatarPopup'
 import AddPlacePopup from './AddPlacePopup'
 
 function App() {
-	const [isEditAvatarPopupOpen, setIsEditAvatarPopupOpen] =
-		React.useState(false)
-	const [isEditProfilePopupOpen, setIsEditProfilePopupOpen] =
-		React.useState(false)
-	const [isAddPlacePopupOpen, setIsAddPlacePopupOpen] = React.useState(false)
-	const [selectedCard, setSelectedCard] = React.useState({ isOpen: false })
-	const [currentUser, setCurrentUser] = React.useState([])
-	const [cards, setCards] = React.useState([])
+	const [isEditAvatarPopupOpen, setIsEditAvatarPopupOpen] = useState(false)
+	const [isEditProfilePopupOpen, setIsEditProfilePopupOpen] = useState(false)
+	const [isAddPlacePopupOpen, setIsAddPlacePopupOpen] = useState(false)
+	const [selectedCard, setSelectedCard] = useState({ isOpen: false })
+	const [currentUser, setCurrentUser] = useState({})
+	const [cards, setCards] = useState([])
 
 	function handleEditAvatarClick() {
 		setIsEditAvatarPopupOpen(true)
@@ -109,12 +107,12 @@ function App() {
 			.addUserAvatar(e)
 			.then(dataAvatar => {
 				setCurrentUser(dataAvatar)
+				closeAllPopups()
 			})
 			.catch(err => {
 				console.log('Ошибка при получении аватарки')
 				console.log(err)
 			})
-		closeAllPopups()
 	}
 
 	function handleUpdateUser(newDataUser) {
@@ -122,12 +120,12 @@ function App() {
 			.addUserInformation(newDataUser)
 			.then(dataUser => {
 				setCurrentUser(dataUser)
+				closeAllPopups()
 			})
 			.catch(err => {
 				console.log('Ошибка при получении информации о пользователе')
 				console.log(err)
 			})
-		closeAllPopups()
 	}
 
 	function handleAddPlaceSubmit(data) {
@@ -135,18 +133,18 @@ function App() {
 			.getCard(data)
 			.then(newCard => {
 				setCards([newCard, ...cards])
+				closeAllPopups()
 			})
 			.catch(err => {
 				console.log('Ошибка при получении информации о пользователе')
 				console.log(err)
 			})
-		closeAllPopups()
 	}
 
 	return (
 		<div className='App'>
 			<div className='page'>
-				<TranslationContext.Provider value={currentUser}>
+				<CurrentUserContext.Provider value={currentUser}>
 					<Header />
 					<Main
 						cards={cards}
@@ -173,13 +171,9 @@ function App() {
 						onClose={closeAllPopups}
 						onAddPlace={handleAddPlaceSubmit}
 					/>
-					<PopupWithForm
-						title='Вы уверены ?'
-						name='delete-picture'
-						buttonText='Да'
-					/>
+					<PopupConfirmation />
 					<ImagePopup card={selectedCard} onClose={closeAllPopups} />
-				</TranslationContext.Provider>
+				</CurrentUserContext.Provider>
 			</div>
 		</div>
 	)

@@ -1,14 +1,14 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState, useContext } from 'react'
 import PopupWithForm from './PopupWithForm'
-import { TranslationContext } from '../contexts/CurrentUserContext'
+import { CurrentUserContext } from '../contexts/CurrentUserContext'
 
 function EditProfilePopup(props) {
-	const [name, setName] = React.useState('')
-	const [description, setDescription] = React.useState('')
+	const [name, setName] = useState('')
+	const [description, setDescription] = useState('')
 
-	const currentUser = React.useContext(TranslationContext)
+	const currentUser = useContext(CurrentUserContext)
 
-	React.useEffect(() => {
+	useEffect(() => {
 		setName(currentUser.name)
 		setDescription(currentUser.about)
 	}, [currentUser])
@@ -43,6 +43,7 @@ function EditProfilePopup(props) {
 						<input
 							id='popup__input_text_name'
 							className='popup__input popup__input_text_name'
+							value={name}
 							onChange={nameChange}
 							name='nameProfile'
 							type='text'
@@ -60,6 +61,7 @@ function EditProfilePopup(props) {
 						<input
 							id='popup__input_text_description'
 							className='popup__input popup__input_text_description'
+							value={description}
 							onChange={descriptionChange}
 							name='nameAbout'
 							type='text'
