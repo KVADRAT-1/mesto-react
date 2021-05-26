@@ -1,5 +1,3 @@
-import FormValidator from './FormValidator'
-
 function PopupWithForm({
 	title,
 	name,
