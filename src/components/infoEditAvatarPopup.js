@@ -23,24 +23,27 @@ function EditAvatarPopup(props) {
 			isOpen={props.isOpen}
 			onClose={props.onClose}
 			onSubmit={handleSubmit}
-		>
-			<div className='popup__section'>
-				<input
-					id='popup__input_link_avatar'
-					className='popup__input popup__input_link_picture'
-					value={avatar}
-					onChange={avatarChange}
-					name='popup__input_link_picture'
-					type='url'
-					placeholder='Ссылка на новый аватар'
-					required
-				/>
-				<span
-					id='popup__input_link_avatar-error'
-					className='popup__input-error'
-				></span>
-			</div>
-		</PopupWithForm>
+			children={
+				<>
+					<div className='popup__section'>
+						<input
+							id='popup__input_link_avatar'
+							className='popup__input popup__input_link_picture'
+							value={avatar}
+							onChange={avatarChange}
+							name='popup__input_link_picture'
+							type='url'
+							placeholder='Ссылка на новый аватар'
+							required
+						/>
+						<span
+							id='popup__input_link_avatar-error'
+							className='popup__input-error'
+						></span>
+					</div>
+				</>
+			}
+		/>
 	)
 }
 

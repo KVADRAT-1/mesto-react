@@ -37,47 +37,44 @@ function EditProfilePopup(props) {
 			isOpen={props.isOpen}
 			onClose={props.onClose}
 			onSubmit={handleSubmit}
-			children={
-				<>
-					<div className='popup__section'>
-						<input
-							id='popup__input_text_name'
-							className='popup__input popup__input_text_name'
-							value={name}
-							onChange={nameChange}
-							name='nameProfile'
-							type='text'
-							required
-							minLength='2'
-							maxLength='40'
-							placeholder='Имя'
-						/>
-						<span
-							id='popup__input_text_name-error'
-							className='popup__input-error'
-						></span>
-					</div>
-					<div className='popup__section'>
-						<input
-							id='popup__input_text_description'
-							className='popup__input popup__input_text_description'
-							value={description}
-							onChange={descriptionChange}
-							name='nameAbout'
-							type='text'
-							required
-							minLength='2'
-							maxLength='200'
-							placeholder='Описание'
-						/>
-						<span
-							id='popup__input_text_description-error'
-							className='popup__input-error'
-						></span>
-					</div>
-				</>
-			}
-		/>
+		>
+			<div className='popup__section'>
+				<input
+					id='popup__input_text_name'
+					className='popup__input popup__input_text_name'
+					value={name}
+					onChange={nameChange}
+					name='nameProfile'
+					type='text'
+					required
+					minLength='2'
+					maxLength='40'
+					placeholder='Имя'
+				/>
+				<span
+					id='popup__input_text_name-error'
+					className='popup__input-error'
+				></span>
+			</div>
+			<div className='popup__section'>
+				<input
+					id='popup__input_text_description'
+					className='popup__input popup__input_text_description'
+					value={description}
+					onChange={descriptionChange}
+					name='nameAbout'
+					type='text'
+					required
+					minLength='2'
+					maxLength='200'
+					placeholder='Описание'
+				/>
+				<span
+					id='popup__input_text_description-error'
+					className='popup__input-error'
+				></span>
+			</div>
+		</PopupWithForm>
 	)
 }
 

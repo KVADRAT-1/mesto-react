@@ -54,16 +54,9 @@ class Api {
 		}).then(handleResponse)
 	}
 
-	addLike(cardId) {
+	changeLikeCardStatus(cardId, isLiked) {
 		return fetch(`${this.options.baseUrl}/cards/likes/${cardId}`, {
-			method: 'PUT',
-			headers: this.options.headers,
-		}).then(handleResponse)
-	}
-
-	deleteLike(cardId) {
-		return fetch(`${this.options.baseUrl}/cards/likes/${cardId}`, {
-			method: 'DELETE',
+			method: isLiked ? 'PUT' : 'DELETE',
 			headers: this.options.headers,
 		}).then(handleResponse)
 	}

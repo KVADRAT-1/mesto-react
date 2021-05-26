@@ -1,10 +1,10 @@
 import React, { useContext } from 'react'
 import { CurrentUserContext } from '../contexts/CurrentUserContext.js'
 
-function Card(props) {
+function Card(card) {
 	const currentUser = useContext(CurrentUserContext)
-	const isOwn = props.owner._id === currentUser._id
-	const isLiked = props.likes.some(i => i._id === currentUser._id)
+	const isOwn = card.owner._id === currentUser._id
+	const isLiked = card.likes.some(i => i._id === currentUser._id)
 	const cardDeleteButtonClassName = `elements__trash-button ${
 		isOwn ? 'elements__trash-button_visible' : 'elements__trash-button_hidden'
 	}`
@@ -12,16 +12,25 @@ function Card(props) {
 		isLiked ? 'elements__like_active' : ''
 	}`
 
-	function handleLikeClick() {
-		props.onCardLike(props)
-	}
-
 	function handleDeleteClick() {
-		props.onCardDelete(props)
+		card.onCardDelete({
+			likes: card.likes,
+			_id: card._id,
+		})
 	}
 
 	function handlePhotoClick() {
-		props.onCardClick(props)
+		card.onCardClick({
+			name: card.name,
+			link: card.link,
+		})
+	}
+
+	function handleLikeClick() {
+		card.onCardLike({
+			likes: card.likes,
+			_id: card._id,
+		})
 	}
 
 	return (
@@ -34,18 +43,18 @@ function Card(props) {
 			<img
 				className='elements__photo'
 				onClick={handlePhotoClick}
-				src={props.link}
-				alt={props.name}
+				src={card.link}
+				alt={card.name}
 			/>
 			<div className='elements__group'>
-				<h2 className='elements__text'>{props.name}</h2>
+				<h2 className='elements__text'>{card.name}</h2>
 				<div className='elements__likes'>
 					<button
 						className={cardLikeButtonClassName}
 						onClick={handleLikeClick}
 						type='button'
 					></button>
-					<div className='elements__like-quantity'>{props.likes.length}</div>
+					<div className='elements__like-quantity'>{card.likes.length}</div>
 				</div>
 			</div>
 		</li>

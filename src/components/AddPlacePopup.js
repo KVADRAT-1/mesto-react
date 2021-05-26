@@ -29,43 +29,40 @@ function AddPlacePopup(props) {
 			isOpen={props.isOpen}
 			onClose={props.onClose}
 			onSubmit={handleSubmit}
-			children={
-				<>
-					<div className='popup__section'>
-						<input
-							id='popup__input_name_picture'
-							className='popup__input popup__input_name_picture'
-							onChange={nameChange}
-							name='namePicture'
-							type='text'
-							placeholder='Название'
-							required
-							minLength='2'
-							maxLength='30'
-						/>
-						<span
-							id='popup__input_name_picture-error'
-							className='popup__input-error'
-						></span>
-					</div>
-					<div className='popup__section'>
-						<input
-							id='popup__input_link_picture'
-							className='popup__input popup__input_link_picture'
-							onChange={linkChange}
-							name='nameLink'
-							type='url'
-							placeholder='Ссылка на картинку'
-							required
-						/>
-						<span
-							id='popup__input_link_picture-error'
-							className='popup__input-error'
-						></span>
-					</div>
-				</>
-			}
-		/>
+		>
+			<div className='popup__section'>
+				<input
+					id='popup__input_name_picture'
+					className='popup__input popup__input_name_picture'
+					onChange={nameChange}
+					name='namePicture'
+					type='text'
+					placeholder='Название'
+					required
+					minLength='2'
+					maxLength='30'
+				/>
+				<span
+					id='popup__input_name_picture-error'
+					className='popup__input-error'
+				></span>
+			</div>
+			<div className='popup__section'>
+				<input
+					id='popup__input_link_picture'
+					className='popup__input popup__input_link_picture'
+					onChange={linkChange}
+					name='nameLink'
+					type='url'
+					placeholder='Ссылка на картинку'
+					required
+				/>
+				<span
+					id='popup__input_link_picture-error'
+					className='popup__input-error'
+				></span>
+			</div>
+		</PopupWithForm>
 	)
 }
 
