@@ -1,0 +1,18 @@
+.authorization__heading {
+	height: 22px;
+	margin: 0 auto 50px auto;
+	padding-top: 20px;
+	color: #ffffff;
+	font-weight: 900;
+	font-size: 24px;
+	line-height: 29px;
+}
+
+@media (max-width: 767px) {
+	.authorization__heading {
+		margin: 0 22px 40px;
+		padding-top: 40px;
+		font-size: 18px;
+		line-height: 22px;
+	}
+}

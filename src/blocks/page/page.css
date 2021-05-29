@@ -1,0 +1,17 @@
+.page {
+	max-width: 1280px;
+	margin: 0 auto;
+	color: #ffffff;
+}
+
+@media (min-width: 767px) and (max-width: 1279px) {
+	.page {
+		width: 619px;
+	}
+}
+
+@media (max-width: 767px) {
+	.page {
+		width: 320px;
+	}
+}

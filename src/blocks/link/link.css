@@ -1,0 +1,12 @@
+.link {
+	text-decoration: none;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 14px;
+	line-height: 17px;
+	color: rgb(255, 255, 255);
+}
+
+.link:hover {
+	opacity: 0.6;
+}

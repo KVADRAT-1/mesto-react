@@ -1,0 +1,20 @@
+.authorization__section {
+	width: 358px;
+	position: relative;
+	margin: 0 auto 216px;
+}
+
+.authorization__section:first-child {
+	margin: 0 auto 30px;
+}
+
+@media (max-width: 767px) {
+	.authorization__section {
+		width: 238px;
+		margin: 0 auto 173px;
+	}
+
+	.authorization__section:first-child {
+		margin: 0 auto 30px;
+	}
+}

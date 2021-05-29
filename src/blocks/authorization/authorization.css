@@ -1,0 +1,20 @@
+.authorization {
+	width: 100%;
+	height: 84.1vh;
+	margin: 0 auto;
+	justify-content: center;
+	text-align: center;
+}
+
+@media (min-width: 768px) and (max-width: 1279px) {
+	.authorization {
+		height: 86.6vh;
+	}
+}
+
+@media (max-width: 767px) {
+	.authorization {
+		width: 282px;
+		height: 88.4vh;
+	}
+}

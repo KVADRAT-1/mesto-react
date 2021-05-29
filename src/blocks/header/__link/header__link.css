@@ -1,0 +1,17 @@
+.header__link {
+	margin-top: 6px;
+	margin: 6px 0 0 0;
+	color: rgba(0, 0, 0, 0.5);
+	font-style: normal;
+	font-weight: normal;
+	font-size: 18px;
+	line-height: 22px;
+}
+
+@media (max-width: 767px) {
+	.header__link {
+		margin-right: 30px;
+		font-size: 14px;
+		line-height: 17px;
+	}
+}
